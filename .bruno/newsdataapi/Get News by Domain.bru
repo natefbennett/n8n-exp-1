@@ -1,0 +1,31 @@
+meta {
+  name: Get News by Domain
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{base_url}}/news?apikey={{api_key}}&domain=techcrunch.com
+  body: none
+  auth: none
+}
+
+params:query {
+  apikey: {{api_key}}
+  domain: techcrunch.com
+  ~country: 
+  ~language: en
+  ~category: 
+  ~q: 
+  ~qInTitle: 
+  ~qInMeta: 
+  ~timeframe: 24
+  ~from_date: 
+  ~to_date: 
+  ~size: 10
+  ~page: 
+  ~domainurl: 
+  ~excludedomain: 
+  ~prioritydomain: 
+  ~removeduplicate: 1
+}

@@ -1,0 +1,18 @@
+meta {
+  name: Get News Sources
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/sources?apikey={{api_key}}&country=us&language=en&category=top
+  body: none
+  auth: none
+}
+
+params:query {
+  apikey: {{api_key}}
+  country: us
+  language: en
+  category: top
+}

@@ -1,0 +1,137 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e58617be-8720-4f42-b63f-7ee283cf93c8",
+      "name": "When chat message received",
+      "webhookId": "0da463d9-8bc3-4af9-8ad4-2c6ef33eee49"
+    },
+    {
+      "parameters": {
+        "model": "qwen3:1.7b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        200,
+        180
+      ],
+      "id": "83f3e624-a843-4292-bf4e-c710945d9cf1",
+      "name": "Ollama Chat Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "8W8ae5NPWPVtNl3F",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a helpful news assistant. You have various news related MCP tools at your disposal. You use these tools to accurately and effectively respond to the user. If the user shows interest in a particular article, ensure that you have the full article content before answering."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "863d5d38-a2d9-433b-ba31-7a6b3424d936",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        360,
+        260
+      ],
+      "id": "349fe462-26f1-4a04-a6a5-07f9b94fed47",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "sseEndpoint": "http://mcp-newsdataapi:8000/sse",
+        "include": "selected"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        540,
+        200
+      ],
+      "id": "61b74854-e924-4935-9cd1-f33422518d83",
+      "name": "MCP Client"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Client": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a336f6c0-84bb-474e-8e7d-22877542be17",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d7c0a643c4064d45e5aca3879c2cfa5f9421796cc3f9a7f1d1d404ef12acd7a3"
+  },
+  "id": "UtlUHuGDk20uEqNv",
+  "tags": []
+}

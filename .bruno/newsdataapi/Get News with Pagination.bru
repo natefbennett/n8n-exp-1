@@ -1,0 +1,31 @@
+meta {
+  name: Get News with Pagination
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{base_url}}/news?apikey={{api_key}}&q=machine learning&country=us&language=en&category=technology&size=50&page=nextPage
+  body: none
+  auth: none
+}
+
+params:query {
+  apikey: {{api_key}}
+  q: machine learning
+  country: us
+  language: en
+  category: technology
+  size: 50
+  page: nextPage
+  ~qInTitle: 
+  ~qInMeta: 
+  ~timeframe: 
+  ~from_date: 
+  ~to_date: 
+  ~domain: 
+  ~domainurl: 
+  ~excludedomain: 
+  ~prioritydomain: top
+  ~removeduplicate: 1
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Get Crypto News
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base_url}}/crypto?apikey={{api_key}}&coin=BTC
+  body: none
+  auth: none
+}
+
+params:query {
+  apikey: {{api_key}}
+  coin: BTC
+  ~country: 
+  ~language: en
+  ~timeframe: 24
+  ~size: 10
+  ~page: 
+  ~domain: 
+  ~domainurl: 
+  ~excludedomain: 
+  ~prioritydomain: top
+}

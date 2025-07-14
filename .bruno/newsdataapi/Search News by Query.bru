@@ -1,0 +1,31 @@
+meta {
+  name: Search News by Query
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{base_url}}/news?apikey={{api_key}}&q=artificial intelligence&country=us&language=en
+  body: none
+  auth: none
+}
+
+params:query {
+  apikey: {{api_key}}
+  q: artificial intelligence
+  country: us
+  language: en
+  ~category: technology
+  ~qInTitle: 
+  ~qInMeta: 
+  ~timeframe: 7
+  ~from_date: 
+  ~to_date: 
+  ~size: 20
+  ~page: 
+  ~domain: 
+  ~domainurl: 
+  ~excludedomain: 
+  ~prioritydomain: top
+  ~removeduplicate: 1
+}

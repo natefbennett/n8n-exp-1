@@ -1,0 +1,11 @@
+[project]
+name = "mcp-newsdataapi"
+version = "0.0.1"
+description = "A MCP server to wrap the NewsDataAPI SDK."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.6.0",
+    "newsdataapi>=0.1.25",
+    "python-dotenv>=1.1.0",
+]
