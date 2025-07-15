@@ -1,0 +1,50 @@
+# -- default to lf line endings
+* text=auto eol=lf
+
+# -- windows files only use crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# -- unix/unix-like only use lf
+*.sh text eol=lf
+
+# -- code
+*.c     text eol=lf
+*.cpp   text eol=lf
+*.cs    text eol=lf
+*.go    text eol=lf
+*.h     text eol=lf
+*.java  text eol=lf
+*.js    text eol=lf
+*.jsx   text eol=lf
+*.php   text eol=lf
+*.py    text eol=lf
+*.rb    text eol=lf
+*.ts    text eol=lf
+*.tsx   text eol=lf
+
+# -- data
+*.csv   text eol=lf
+*.html  text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.txt   text eol=lf
+*.xml   text eol=lf
+*.yaml  text eol=lf
+*.yml   text eol=lf
+
+# -- ensure binary
+*.dll   binary
+*.exe   binary
+*.gif   binary
+*.gz    binary
+*.ico   binary
+*.jpeg  binary
+*.jpg   binary
+*.pdf   binary
+*.png   binary
+*.zip   binary
+
+# -- don't mess with these files
+package-lock.json -text
+*.lock -text
